@@ -34,7 +34,7 @@
     padding-right: 10px;
 }
 
-#current-value {
+#current-text {
     font-size: 1.8rem;
 }
 
@@ -75,10 +75,6 @@ button:hover {
     /* height: 65px; */
     background-color: burlywood;
 }
-
-/*#zero {
-    width: 160px;
-}*/
 
 #all-clear {
     width: 160px;
