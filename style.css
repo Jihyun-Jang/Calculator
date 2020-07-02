@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
 .container {
     border: 2px solid rgb(102, 127, 160);
     width: 380px;
@@ -20,11 +18,20 @@
     height: 100px;    
     margin: 25px auto 20px;    
     background-color: rgb(33, 33, 48);   
-    box-shadow: 1px 1px 3px black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-end;
+    box-shadow: 1px 1px 3px black;   
+}
+
+#calculation-display {    
+    height: 50px;
+    text-align: right;
+    padding-top: 20px;
+    font-size: 1.2rem;
+}
+
+#current-display {    
+    height: 50px;
+    font-size: 1.8rem;
+    text-align: right;
 }
 
 .display div {
@@ -32,10 +39,6 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-shadow: 2px 2px 3px black;    
     padding-right: 10px;
-}
-
-#current-text {
-    font-size: 1.8rem;
 }
 
 .btn-container {
@@ -71,8 +74,7 @@ button:hover {
 }
 
 #equals {
-    width: 160px;
-    /* height: 65px; */
+    width: 160px;    
     background-color: burlywood;
 }
 
