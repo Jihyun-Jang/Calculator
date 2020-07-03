@@ -27,7 +27,12 @@ function calculate() {
 
 
    if(this.classList[0] === 'operator') {
-      if(curDisplay.innerText === '') return;
+      if(curDisplay.innerText === '' && calculatingArr.length % 2 === 0 && calculatingArr.length !== 0) {
+         calculatingArr.pop();
+         clacDisplay.innerText = clacDisplay.innerText.slice(0, -1) + this.innerText;
+         calculatingArr.push(this.value);
+         return;
+      } else if(curDisplay.innerText === '') return;
       else if(isCalculating === false) {
          calculatingArr = [];
          clacDisplay.innerText = '';
@@ -37,8 +42,7 @@ function calculate() {
       calculatingArr.push(curDisplay.innerText);
       calculatingArr.push(this.value);
       clacDisplay.innerText += Number(curDisplay.innerText) + this.innerText;
-      curDisplay.innerText = '';        
-      
+      curDisplay.innerText = '';      
    }
 
 
