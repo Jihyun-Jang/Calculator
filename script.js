@@ -27,22 +27,73 @@ function calculate() {
 
 
    if(this.classList[0] === 'operator') {
-      if(curDisplay.innerText === '' && calculatingArr.length % 2 === 0 && calculatingArr.length !== 0) {
-         calculatingArr.pop();
-         clacDisplay.innerText = clacDisplay.innerText.slice(0, -1) + this.innerText;
-         calculatingArr.push(this.value);
-         return;
-      } else if(curDisplay.innerText === '') return;
-      else if(isCalculating === false) {
-         calculatingArr = [];
-         clacDisplay.innerText = '';
-         isCalculating = true;       
+      if(isCalculating === false) {
+         if(this.id === 'subtract') {
+            if(calculatingArr.length !== 0) {
+               calculatingArr = [];
+               clacDisplay.innerText = '';
+               isCalculating = true;
+               calculatingArr.push(curDisplay.innerText);
+               calculatingArr.push(this.value);
+               clacDisplay.innerText += ' ' + Number(curDisplay.innerText) + ' ' + this.innerText;
+               curDisplay.innerText = '';
+            } else { // 맨첨 시작
+               curDisplay.innerText = this.innerText;
+               isCalculating = true;
+            }
+
+         } else { //isCalculating === false && this.id !== 'subtract'
+            if(curDisplay.innerText === '') return;
+            else {
+               calculatingArr = [];
+               clacDisplay.innerText = '';
+               isCalculating = true;
+               calculatingArr.push(curDisplay.innerText);
+               calculatingArr.push(this.value);
+               clacDisplay.innerText += ' ' + Number(curDisplay.innerText) + ' ' + this.innerText;
+               curDisplay.innerText = '';
+            }
+         }
+
+      } else { // isCalculating === true
+         if(this.id === 'subtract') {
+            if(curDisplay.innerText === '-') return;
+            else if(curDisplay.innerText === '') {
+               curDisplay.innerText = this.innerText;
+            } else {
+               calculatingArr.push(curDisplay.innerText);
+               calculatingArr.push(this.value);
+               clacDisplay.innerText += ' ' + Number(curDisplay.innerText) + ' ' + this.innerText;
+               curDisplay.innerText = '';
+            }
+
+         } else { // true고 && subtract 아님
+            if(curDisplay.innerText === '-') return;
+            else if(curDisplay.innerText === '') return;
+            else {
+               calculatingArr.push(curDisplay.innerText);
+               calculatingArr.push(this.value);
+               clacDisplay.innerText += ' ' + Number(curDisplay.innerText) + ' ' + this.innerText;
+               curDisplay.innerText = '';
+            }
+         }
       }
+
+
+
+
       
-      calculatingArr.push(curDisplay.innerText);
-      calculatingArr.push(this.value);
-      clacDisplay.innerText += Number(curDisplay.innerText) + this.innerText;
-      curDisplay.innerText = '';      
+      // if(curDisplay.innerText === '') return;
+      // else if(isCalculating === false) {
+      //    calculatingArr = [];
+      //    clacDisplay.innerText = '';
+      //    isCalculating = true;       
+      // }
+      
+      // calculatingArr.push(curDisplay.innerText);
+      // calculatingArr.push(this.value);
+      // clacDisplay.innerText += Number(curDisplay.innerText) + this.innerText;
+      // curDisplay.innerText = '';        
    }
 
 
@@ -61,9 +112,9 @@ function calculate() {
 
    if(this.id === 'equals') {
       if(isCalculating === false) return;
-      if(curDisplay.innerText === '') return;
+      if(curDisplay.innerText === '' || curDisplay.innerText === '-') return;
       calculatingArr.push(curDisplay.innerText);
-      clacDisplay.innerText += Number(curDisplay.innerText);
+      clacDisplay.innerText += ' ' + Number(curDisplay.innerText);
       result = eval(calculatingArr.join(' '));
       curDisplay.innerText = result;      
       isCalculating = false;
