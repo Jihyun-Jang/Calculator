@@ -38,7 +38,7 @@ function clickNumber(event) {
 }
 
 
-function clickOperator() {
+function clickOperator(event) {
    if(isCalculating === false) {
       if(event.target.id === 'subtract') {
          if(calculatingArr.length !== 0) {
@@ -67,8 +67,13 @@ function clickOperator() {
 
       } else { // isCalculating === true && this.id !== 'subtract'
          if(curDisplay.innerText === '-') return;
-         else if(curDisplay.innerText === '') return;
-         else update(event);         
+         else if(curDisplay.innerText === '') {
+            if(clacDisplay.innerText.slice(-1) === '+' || clacDisplay.innerText.slice(-1) === 'x' || clacDisplay.innerText.slice(-1) === '÷') {
+               clacDisplay.innerText = clacDisplay.innerText.slice(0, clacDisplay.innerText.length-1) + event.target.innerText;
+               calculatingArr.pop();
+               calculatingArr.push(event.target.value);
+            }
+         } else update(event);         
       }
    } 
 }
