@@ -79,6 +79,7 @@ function clickOperator(event) {
 }
 
 
+// delete everything
 function clickAllClear() {
    curDisplay.innerText = '';
    clacDisplay.innerText = '';
@@ -87,12 +88,14 @@ function clickAllClear() {
 }
 
 
+// delete one last digit
 function clickClear() {
    if(isCalculating === false) return;
    curDisplay.innerText = curDisplay.innerText.slice(0, -1);
 }
 
 
+// calculate the result
 function clickEquals() {
    if(isCalculating === false) return;
    if(curDisplay.innerText === ''|| curDisplay.innerText === '-') return;
