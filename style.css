@@ -6,7 +6,7 @@
 
 .container {
     border: 2px solid rgb(102, 127, 160);
-    width: 380px;
+    max-width: 400px;
     margin: 20px auto;
     background-color: rgb(102, 127, 160);
     border-radius: 3%;
@@ -14,7 +14,7 @@
 }
 
 .display {
-    width: 322px;
+    width: 85%;
     height: 100px;    
     margin: 25px auto 20px;    
     background-color: rgb(33, 33, 48);   
@@ -31,7 +31,7 @@
 
 #current-display {    
     height: 50px;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     padding-top: 5px;
     text-align: right;
 }
@@ -44,17 +44,16 @@
 }
 
 .btn-container {
-    width: 322px;
-    margin: 25px auto 20px;
-    border: 1px solid black;
+    width: 85%;
+    margin: 25px auto 20px;    
     display: flex;
     flex-wrap: wrap;    
 }
 
 button {
-    width: 80px;
+    width: 25%;
     height: 70px;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     cursor: pointer;    
     background-color: rgb(241, 245, 250);    
     outline: none;     
@@ -76,11 +75,11 @@ button:hover {
 }
 
 #equals {
-    width: 160px;    
+    width: 50%;    
     background-color: burlywood;
 }
 
 #all-clear {
-    width: 160px;
+    width: 50%;
     background-color: rgb(226, 138, 138);
 }
